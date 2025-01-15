@@ -11,5 +11,8 @@
     "@playwright/test": "^1.49.1",
     "@types/node": "^22.10.5",
     "playwright": "^1.49.1"
+  },
+  "dependencies": {
+    "typescript": "^5.7.2"
   }
 }
