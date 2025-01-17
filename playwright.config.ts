@@ -1,18 +1,26 @@
 import { defineConfig, devices } from '@playwright/test';
+import * as dotenv from 'dotenv';
+
+
+dotenv.config({ path: '.env' });
+
+
+
 export default defineConfig({
   testDir: './tests',
-  fullyParallel: false,
-  forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
-  reporter: 'html',
+  timeout: 30 * 1000,
+  expect: {
+    timeout: 5000,
+  },
   use: {
-    baseURL: 'https://qauto.forstudy.space',
+    baseURL: process.env.BASE_URL,
     httpCredentials: {
-      username: 'guest',
-      password: 'welcome2qauto',
+      username: process.env.USERNAME!,
+      password: process.env.PASSWORD!,
     },
-    trace: 'on-first-retry',
+    headless: true,
+    viewport: { width: 1280, height: 720 },
+    ignoreHTTPSErrors: true,
   },
   projects: [
     {
