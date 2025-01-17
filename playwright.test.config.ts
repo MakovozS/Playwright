@@ -1,30 +1,30 @@
 import { defineConfig, devices } from '@playwright/test';
 import * as dotenv from 'dotenv';
 
-// Загружаем переменные окружения из файла .env.test
 dotenv.config({ path: '.env.test' });
+
 
 
 export default defineConfig({
     testDir: './tests',
-    timeout: 30 * 1000, // Время выполнения теста
+    timeout: 30 * 1000,
     expect: {
-        timeout: 5000, // Таймаут ожидания элементов
+        timeout: 5000,
     },
     use: {
-        baseURL: process.env.BASE_URL, // URL берется из переменной окружения
+        baseURL: process.env.BASE_URL,
         httpCredentials: {
             username: process.env.USERNAME!,
             password: process.env.PASSWORD!,
         },
-        headless: true, // Запуск без отображения браузера
-        viewport: { width: 1280, height: 720 }, // Размер окна браузера
-        ignoreHTTPSErrors: true, // Игнорирование ошибок HTTPS
+        headless: true,
+        viewport: { width: 1280, height: 720 },
+        ignoreHTTPSErrors: true,
     },
     projects: [
         {
-            name: 'chromium', // Имя проекта
-            use: { ...devices['Desktop Chrome'] }, // Используем настройки для Desktop Chrome
+            name: 'chromium',
+            use: { ...devices['Desktop Chrome'] },
         },
     ],
 });
