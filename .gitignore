@@ -6,3 +6,4 @@ playwright/.cache/
 
 /.env
 /.env.test
+storageState.json

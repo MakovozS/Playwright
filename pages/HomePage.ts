@@ -1,15 +1,15 @@
 import { Page, Locator } from '@playwright/test';
 
-export class HomePage {
+export default class HomePage {
     readonly page: Page;
-    readonly signUpButton: Locator;
+    readonly signInButton: Locator;
 
     constructor(page: Page) {
         this.page = page;
-        this.signUpButton = page.locator('button.btn.btn-primary:has-text("Sign up")');
+        this.signInButton = page.locator('//*[contains(@class, "header_signin")]');
     }
 
-    async goToSignUpPage() {
-        await this.signUpButton.click();
+    async goToSignInForm() {
+        await this.signInButton.click();
     }
 }
