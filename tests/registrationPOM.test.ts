@@ -5,12 +5,12 @@ import { SignUpPage } from '../pages/SignUpPage';
 test.describe("SignUp Form Validations", () => {
     let homePage, signUpPage;
 
-    test.beforeEach(async ({ page }) => {
+    test.beforeEach(async ({ page, baseURL }) => {
         homePage = new HomePage(page);
         signUpPage = new SignUpPage(page);
         await page.context().clearCookies();
 
-        await page.goto('https://qauto.forstudy.space');
+        await page.goto(`${process.env.BASE_URL}`);
         await homePage.goToSignUpPage();
     });
 
@@ -193,7 +193,7 @@ test.describe("SignUp Form Validations", () => {
         await page.locator("#signupPassword").fill('Password123');
         await page.locator("#signupRepeatPassword").fill('Password123');
         await page.locator('button.btn.btn-primary', { hasText: 'Register' }).click();
-        await expect(page).toHaveURL('https://qauto.forstudy.space/panel/garage');
+        await expect(page).toHaveURL(process.env.GARAGE_URL!);
     });
 
 });
