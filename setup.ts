@@ -15,11 +15,6 @@ dotenv.config();
 
     const page = await context.newPage();
 
-    // if (!process.env.BASE_URL || !process.env.USERNAME || !process.env.PASSWORD) {
-    //     console.error('BASE_URL, USERNAME или PASSWORD не заданы в .env файле');
-    //     return;
-    // }
-
     await page.goto(process.env.BASE_URL!);
 
     const signInButton = page.locator("button.header_signin");

@@ -14,7 +14,7 @@ export default class SignInForm {
         this.signInButton = page.locator('button.btn.header_signin');
         this.emailField = page.locator('input#signinEmail[name="email"]');
         this.passwordField = page.locator('input#signinPassword[name="password"]');
-        this.loginButton = page.locator('button.btn.btn-primary');
+        this.loginButton = page.locator('button[type="button"].btn.btn-primary:has-text("Login")');
         this.forgotPasswordLink = page.locator('button.btn.btn-link:has-text("Forgot password")');
         this.registrationLink = page.locator('button.btn.btn-link:has-text("Registration")');
     }
