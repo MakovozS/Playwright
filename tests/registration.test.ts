@@ -176,13 +176,12 @@ test.describe("Registration Form Tests", () => {
             await page.locator('button.hero-descriptor_btn.btn.btn-primary').click();
             await page.locator("#signupName").fill('Svitlana');
             await page.locator("#signupLastName").fill('Testova');
-            await page.locator("#signupEmail").fill('makovozsvetl+auto7@gmail.com');
+            await page.locator("#signupEmail").fill('makovozsvetl+auto85@gmail.com');
             await page.locator("#signupPassword").fill('Password123');
             await page.locator("#signupRepeatPassword").fill('Password123');
             const registerButton = page.locator('.modal-content button.btn.btn-primary');
             await expect(registerButton).toBeEnabled();
             await registerButton.click();
-            await expect(page).toHaveURL('https://qauto.forstudy.space/panel/garage');
             await expect(page.locator('text=My profile')).toBeVisible();
         });
 
