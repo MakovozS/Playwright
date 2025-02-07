@@ -9,10 +9,8 @@ test('Test changing user name in profile with API manipulation', async ({ page }
     await signInForm.signInButton.click();
     await signInForm.loginWithCredentials(process.env.SIGNIN_EMAIL!, process.env.SIGNIN_PASSWORD!);
     await page.waitForURL(process.env.GARAGE_URL!);
-
     const userNavDropdown = page.locator('#userNavDropdown');
     await userNavDropdown.click();
-
     const profileLink = page.locator('a[routerlink="/panel/profile"]');
     await profileLink.click();
 
