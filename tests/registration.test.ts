@@ -171,12 +171,28 @@ test.describe("Registration Form Tests", () => {
             await expect(page.locator('.modal-content button.btn.btn-primary')).toBeDisabled();
         });
 
+        // test("Should enable Register button and submit form if all fields are valid", async ({ page }) => {
+        //     await page.goto('https://qauto.forstudy.space');
+        //     await page.locator('button.hero-descriptor_btn.btn.btn-primary').click();
+        //     await page.locator("#signupName").fill('Svitlana');
+        //     await page.locator("#signupLastName").fill('Testova');
+        //     await page.locator("#signupEmail").fill('makovozsvetl+auto87@gmail.com');
+        //     await page.locator("#signupPassword").fill('Password123');
+        //     await page.locator("#signupRepeatPassword").fill('Password123');
+        //     const registerButton = page.locator('.modal-content button.btn.btn-primary');
+        //     await expect(registerButton).toBeEnabled();
+        //     await registerButton.click();
+        //     await expect(page.locator('text=My profile')).toBeVisible();
+        // });
+
+
         test("Should enable Register button and submit form if all fields are valid", async ({ page }) => {
+            const randomNumber = Math.floor(100 + Math.random() * 900);
             await page.goto('https://qauto.forstudy.space');
             await page.locator('button.hero-descriptor_btn.btn.btn-primary').click();
             await page.locator("#signupName").fill('Svitlana');
             await page.locator("#signupLastName").fill('Testova');
-            await page.locator("#signupEmail").fill('makovozsvetl+auto85@gmail.com');
+            await page.locator("#signupEmail").fill(`makovozsvetl+auto${randomNumber}@gmail.com`);
             await page.locator("#signupPassword").fill('Password123');
             await page.locator("#signupRepeatPassword").fill('Password123');
             const registerButton = page.locator('.modal-content button.btn.btn-primary');
