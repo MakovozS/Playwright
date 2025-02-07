@@ -36,7 +36,8 @@ export default class GaragePage {
     }
 
     async addCarByBrandAndModel(brand: string, model: string) {
-        await this.addNewCarButton.waitFor({ state: 'visible' });
+
+        await this.addNewCarButton.waitFor({ state: 'visible', timeout: 60000 });
         await this.addNewCarButton.click();
         const addCarModal = this.page.locator('div.modal-content');
         await expect(addCarModal).toBeVisible();
@@ -49,6 +50,7 @@ export default class GaragePage {
         await this.mileageField.fill('555');
         await this.submitFormButton.click();
     }
+
 
     async removeLastAddedCar() {
         const firstEditButton = this.page.locator('.car_actions .icon-edit').first();
